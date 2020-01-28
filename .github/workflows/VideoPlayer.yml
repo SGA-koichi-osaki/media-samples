@@ -18,5 +18,9 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Gradle
+      env:
+	super_secret: ${{ secrets.DEPLOYGATE_APP_OWNER_NAME }}
+        super_secret: ${{ secrets.DEPLOYGATE_API_TOKEN }}
       working-directory: ./VideoPlayer
-      run: ./gradlew build
+      run: ./gradlew uploadDeployGateDebug
+      
