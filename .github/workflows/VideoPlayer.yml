@@ -23,5 +23,5 @@ jobs:
         DEPLOYGATE_API_TOKEN: ${{ secrets.DEPLOYGATE_API_TOKEN }}
       working-directory: ./VideoPlayer
       run: |
-        git name-rev HEAD
+        git name-rev HEAD | cut -f 2 -d ' ' | sed -e 's!~.*!!' -e 's!remotes/origin/!!'
 #	./gradlew uploadDeployGateDebug
