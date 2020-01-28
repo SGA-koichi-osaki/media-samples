@@ -22,7 +22,7 @@ apply plugin: 'deploygate'
 android {
     compileSdkVersion 27
 
-    def branchName = "git rev-parse --abbrev-ref HEAD".execute().text.trim()
+    def branchName = "git branch -a --contains HEAD | grep -v "HEAD detached" | head -n 1 | sed -e 's!remotes/origin/!!' -e 's!*!!' -e 's![ \t]*!!'".execute().text.trim()
     def commitId = "git rev-parse --short HEAD".execute().text.trim()
 
     defaultConfig {
