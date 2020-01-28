@@ -21,12 +21,17 @@ apply plugin: 'deploygate'
 
 android {
     compileSdkVersion 27
+
+    def branchName = "git rev-parse --abbrev-ref HEAD".execute().text.trim()
+    def commitId = "git rev-parse --short HEAD".execute().text.trim()
+
     defaultConfig {
         applicationId "com.example.android.videoplayersample"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+	versionNameSuffix ".${branchName}.${commitId}"
     }
 }
 
