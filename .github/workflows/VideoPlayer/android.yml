@@ -3,8 +3,8 @@ name: Android CI
 on:
   push:
     paths: 
-      - VideoPlayer/*
-      - .github/workflows/VideoPlayer/*
+      - 'VideoPlayer/**'
+      - '.github/workflows/VideoPlayer/**'
 
 jobs:
   build:
