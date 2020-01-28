@@ -23,4 +23,4 @@ jobs:
         DEPLOYGATE_API_TOKEN: ${{ secrets.DEPLOYGATE_API_TOKEN }}
       working-directory: ./VideoPlayer
 #      run: ./gradlew uploadDeployGateDebug
-      run: git branch -a --contains HEAD | grep -v "Head detached" | tr -d "remotes/origin/"
+      run: git branch -a --contains HEAD | grep -v "HEAD detached" | head -n 1 | sed -e 's!remotes/origin/!!' | sed -e 's!*!!'
